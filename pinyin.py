@@ -32,24 +32,38 @@ class PinYin(object):
                     self.word_dict[line[0]] = line[1]
 
 
+    # def hanzi2pinyin(self, string=""):
+    #     result = []
+    #     if not isinstance(string, unicode):
+    #         string = string.decode("utf-8")
+        
+    #     for char in string:
+    #         key = '%X' % ord(char)
+    #         result.append(self.word_dict.get(key, char).split()[0][:-1].lower())
+
+    #     return result
+
     def hanzi2pinyin(self, string=""):
         result = []
         if not isinstance(string, unicode):
             string = string.decode("utf-8")
-        
+
         for char in string:
             key = '%X' % ord(char)
-            result.append(self.word_dict.get(key, char).split()[0][:-1].lower())
+            if not self.word_dict.get(key):
+                result.append(char)
+            else:
+                result.append(self.word_dict.get(key, char).split()[0][:-1].lower())
 
         return result
 
 
     def hanzi2pinyin_split(self, string="", split=""):
         result = self.hanzi2pinyin(string=string)
-        if split == "":
-            return result
-        else:
-            return split.join(result)
+        # if split == "":
+        #     return result
+        # else:
+        return split.join(result)
 
 
 # if __name__ == "__main__":
