@@ -52,10 +52,10 @@ class PinYin(object):
             return split.join(result)
 
 
-if __name__ == "__main__":
-    test = PinYin()
-    test.load_word()
-    string = "钓鱼岛是中国的"
-    print "in: %s" % string
-    print "out: %s" % str(test.hanzi2pinyin(string=string))
-    print "out: %s" % test.hanzi2pinyin_split(string=string, split="-")
+# if __name__ == "__main__":
+#     test = PinYin()
+#     test.load_word()
+#     string = "钓鱼岛是中国的"
+#     print "in: %s" % string
+#     print "out: %s" % str(test.hanzi2pinyin(string=string))
+#     print "out: %s" % test.hanzi2pinyin_split(string=string, split="-")
